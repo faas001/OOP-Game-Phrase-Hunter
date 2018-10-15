@@ -1,13 +1,23 @@
 class Game {
     constructor() {
         this.missed = 0;
-        this.gamePhrase = new Phrase('The quick brown fox jumped over the lazy brown dog');
+        this.Phrases = ['The quick brown fox jumped over the lazy brown dogs',
+                           'Phrase Hunter',
+                           'netflix and chill',
+                           'just do it',
+                           'think different',
+                           'javascript techdegree'
+                        ];
+        this.gamePhrase = [];
 
     }
 
     //randomly retrieve one of phrases stored in phrases array
     getRandomPhrase() {
-        this.gamePhrase.addPhraseToDisplay(this.gamePhrase);
+        const randIndex = Math.floor(Math.random() * this.Phrases.length);
+        this.gamePhrase = new Phrase(this.Phrases[randIndex]);
+        console.log(this.gamePhrase);
+        this.gamePhrase.addPhraseToDisplay();
 
     }
 
@@ -21,7 +31,8 @@ class Game {
             const showClass = `.hide.letter.${letter}`;
             console.log(showClass);
             console.log($(showClass));
-            $(showClass).css('color','black')
+            $(showClass).css('color','black');
+            $(showClass).css('backgroundColor','white');
 
             
 

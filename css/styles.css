@@ -29,7 +29,7 @@ body {
   display: flex;
   height: 100vh;
 
-  background-image: linear-gradient(#00995c,#fff);
+  background-image: linear-gradient(#879A87,#fff);
 }
 
 li, ol, ul {
@@ -53,9 +53,9 @@ button {
   margin: 6px;
   border: 1px solid transparent;
   padding: .5rem 1rem;
-  color: var(--color-keys);
+  color: #F6E9BC; /* var(--color-keys); */
   font-size: var(--font-size-medium);
-  background-color: var(--color-keys-light);
+  background-color: #879A87; /* var(--color-keys-light); */ 
   border-radius: 5px;
   -webkit-transition: var(--transition);
   -o-transition: var(--transition);
@@ -117,7 +117,7 @@ button {
   padding: 20px 1px 0 1px;
   margin-right: 2px;
   color: transparent;
-  background: var(--color-neutral-light);
+  background: #F6E9BC; /*var(--color-neutral-light);*/
   border-radius: 5px;
 }
 
@@ -198,7 +198,8 @@ button {
 }
 
 .start {
-  background-color: #3a3f58;
+  background-image: radial-gradient(#879A87,#fff);
+  background-color:  #879A87; /* #3a3f58; */
 }
 
 .start a {
