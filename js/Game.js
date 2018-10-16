@@ -6,7 +6,8 @@ class Game {
                            'netflix and chill',
                            'just do it',
                            'think different',
-                           'javascript techdegree'
+                           'javascript techdegree',
+                           'office memes'
                         ];
         this.gamePhrase = [];
 
