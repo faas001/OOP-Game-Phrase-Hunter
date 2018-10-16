@@ -128,8 +128,8 @@ button {
 
 
 .show {
-  color: #fff;
-  background-color: #4ac0d5;
+  color: black;
+  background-color:whitesmoke/* #4ac0d5; */
   font-size: 20px;
   height: 65px;
   width: 65px;
@@ -156,7 +156,7 @@ button {
 }
 
 .wrong {
-  background: #f7a964;
+  background: transparent;
   color: #FFFFFF;
 }
 

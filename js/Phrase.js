@@ -32,7 +32,13 @@ class Phrase {
 
     showMatchedLetter(selected) {
         //reveals letter on board if it matches selected letter
-        $('`.hide letter ${selected}`').text(selected);
+            console.log('true', selected);
+            const showClass = `.hide.letter.${selected}`;
+            console.log(showClass);
+            console.log($(showClass));
+            $(showClass).addClass('show').removeClass('hide');
+            // $(showClass).css('color','black');
+           // $(showClass).css('backgroundColor','white');
     }
 
 }
