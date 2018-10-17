@@ -1,17 +1,22 @@
 const keyButtons = document.getElementById('qwerty');
-console.log(keyButtons);
+
 let newGame = [];
-//this function hides the start screen overlay.
+
+//this function hides the start screen overlay. and will reset the phrase/keys/lives display on replays
 function resetDisplay() {
-    $('.start').hide();
+    $('#overlay').hide().removeClass('win').removeClass('lose').addClass('start');
 
+    $('#phrase ul').html('');
+    $('.wrong').html('<li class="tries"><img src="images/liveHeart.png" height="35px" widght="30px"></li>');
+    $('.key').removeAttr('disabled')
+             .removeAttr('style');
+             
 }
-
 // this function is called when a player selects a letter. It disables the button on the onscreen keyboard and calls the handleInteraction() method of the Game class.
 function markButton(letter) {
-    console.log('marked '+ `.hide.letter.${letter}`);
+    
     const screenButton = $('.key');
-    console.log(screenButton);
+    
     for (let i = 0; i < 26; i += 1) {
         console.log(screenButton.eq(i).text());
         if (screenButton.eq(i).text() === letter) {
@@ -21,47 +26,36 @@ function markButton(letter) {
                         .css('color', 'grey');
         }
     }
-
-    // // $(`.${letter}`).attr('disabled', 'disabled');
-    // $(`.${letter}`).attr('backgroundColor', 'darkgrey');
-    // $(`.${letter}`).attr('color', 'grey');
-   // button.style.backgroundColor = 'darkgrey';
-   // button.style.color = 'grey';
+ 
     newGame.handleInteraction(letter);
 } 
-/*
-function markButton(button) {
-    console.log(button.textContent);
-    button.setAttribute('disabled', 'disabled');
-    button.style.backgroundColor = 'darkgrey';
-    button.style.color = 'grey';
-    newGame.handleInteraction(button.textContent);
-}
-*/
 
+
+// wait for the Start/replay button to be clicked to play
 document.getElementById('btn__reset').addEventListener('click', () => {
 
     resetDisplay();
     newGame = new Game();
-  
     newGame.startGame();
     
 });
 
+// respond to clicks on the on screen keyboard and call function to disable button selected
 keyButtons.addEventListener('click', (e) => {
- console.log(e.target);
+ 
     if (e.target.className === 'key') {
         markButton(e.target.textContent);
     }
 
 });
 
+// respond to physical keyboard input and call function to disable key pressed
 document.addEventListener('keypress', (e) => {
-   console.log(e.key);
-        if (e.key.match(/[a-z]/i) ) {
-          
+   
+        if (e.key.match(/[a-z]/i) && e.key !== 'Enter' ) {
+         
             markButton(e.key);
             
-        }
-    
-    });
+        } 
+   
+});

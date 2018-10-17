@@ -7,7 +7,12 @@ class Game {
                            'just do it',
                            'think different',
                            'javascript techdegree',
-                           'office memes'
+                           'office memes',
+                           'game changer',
+                           'elvis has left the building',
+                           'let sleeping dogs lie',
+                           'piece of cake',
+                           'your guess is as good as mine'
                         ];
         this.gamePhrase = [];
 
@@ -17,15 +22,12 @@ class Game {
     getRandomPhrase() {
         const randIndex = Math.floor(Math.random() * this.Phrases.length);
         this.gamePhrase = new Phrase(this.Phrases[randIndex]);
-        console.log(this.gamePhrase);
-        
     }
 
     //check to see if button/letter clicked matches one in the phrase
-        //if yes reveal and check for win, if no subtract life counter
+    //if yes reveal and check for win, if no subtract life counter
     handleInteraction(letter) {
-        
-        console.log(this.gamePhrase);
+                
         if ( this.gamePhrase.checkLetter(letter) ) {
             this.gamePhrase.showMatchedLetter(letter);
             this.checkForWin();
@@ -47,11 +49,11 @@ class Game {
         }
     }
 
-    //this method checks to see if the player has selected all of the letters.
+    //this method checks to see if the player has selected all of the letters for win condition
     checkForWin() {
-        console.log($('.hide.letter').length);
+        
         if ($('.hide.letter').length === 0) {
-            console.log('you win');
+          
             this.gameOver();
         }       
         
@@ -60,14 +62,21 @@ class Game {
     //displays a Win or Loss messages depending if they correctly selected all letters or ran out of tries.
     gameOver() {
         if (this.missed !== 5) {
-            $('#qwerty').hide();
-            $('#scoreboard').before('<div id="gameover">You won! Congratulations!!!</div>');
+            $('#overlay').removeClass('start').addClass('win');
+            $('#overlay').show();
+            $('#game-over-message').text(`Yes, the phrase was "${this.gamePhrase.phrase}." You won! Congratulations!!!`);
+            $('#btn__reset').text('Play Again');
         } else {
-            $('#qwerty').hide();
-            $('#scoreboard').before('<div id="gameover">You Lost! Better Luck Next Time.</div>');
+            $('#overlay').removeClass('start').addClass('lose');
+            $('#overlay').show();
+            $('#game-over-message').text('You Lost! Better Luck Next Time.');
+            $('#btn__reset').text('Try Again');
+            
+            
         }
     }
 
+    //generate random phrase for current game and add it to display
     startGame() {
         this.getRandomPhrase();
         this.gamePhrase.addPhraseToDisplay();

@@ -207,7 +207,8 @@ button {
 }
 
 .win {
-  background-color: var(--color-win);
+  /*background-color: var(--color-win);*/
+  background-image: linear-gradient(to bottom right, #879A87,#fff);
 }
 
 .win a {
@@ -215,7 +216,8 @@ button {
 }
 
 .lose {
-  background-color: #f5785f;
+  background-color: #F6E9BC;
+  background-image: radial-gradient(#879A87,#fff);
 }
 
 .lose a {
