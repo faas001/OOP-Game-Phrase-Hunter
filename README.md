@@ -2,7 +2,7 @@
 
 Demo at https://faas001.github.io/OOP-Game-Phrase-Hunter/
 
-Game created as part of Fullstack JavaScipt Treehouse Techdegree program.
+Game created as part of Fullstack JavaScript Treehouse Techdegree program.
 
 All JavaScipt files created and coded from scratch.
 
